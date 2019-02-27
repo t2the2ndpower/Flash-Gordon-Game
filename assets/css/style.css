@@ -1,0 +1,10 @@
+.gameStyle {
+    background-image: "assets/images/1920x1200_Flash.jpg";
+    background-attachment: fixed;
+}
+
+.image {
+    padding: 5px;
+    /* border: 5px green solid; */
+    position: relative;
+}
