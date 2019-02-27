@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
+    <link rel="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
+    <title>Know your PC Techniques!</title>
+</head>
+<body>
+<div class = "container">
+    <div class="jumbotron">
+        <h1 class="display-3">Know Your PolymerClay Techniques!</h1>
+        <p class="lead">Are you ready to guess the Technique?</p>
+        <hr class="my-2">
+        <p>I promise this will be fun!</p>
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="#" role="button">Start Game</a>
+        </p>
+    </div>
+    <!-- <h1>Know Your PC Techniques!</h1> -->
+    <!-- <div class = "spacer"></div> -->
+    <!-- <div class = "gameArea"> -->
+        <!-- <h2> Are you ready to guess the Technique?</h2> -->
+        <div class="row">
+            <div class = "col-md-6">
+                <div class = "container">
+                    <p><h3 id="mstTitle">Mystery Techique #1</h3></p>
+                    <p id="mstDesc">Technique description goes here (delete this started text once the game has been built.</p>
+                    <img id="mstPic" src="assets/images/question.jpg" width="250px" height="250px">
+                    <p id="questionTease">Do you even have a clue?</p>
+                </div>
+            </div>
+            <div class = "col-md-6">
+                <div class = "container">
+                    <p><h2>Guessed Letters</h2></p>
+                    <input id = "guessBox"></input>
+                    <p id="show"></p>
+                    <p>Your number of remaining guesses...</p>
+                    <p id="remainingKeystrokes">Number of keystrokes left before the game player looses the game</p>
+                    <p>Hint: spaces are included in your guess so try hitting the spacebar first!</p>
+                    <p id="activeGamePlay">Underscores to be turned into correct letters as the game player presses down on keys</p>
+                    <p>Winning Guesses</p>
+                    <p id="wins">number of winning guesses</p>
+                    <p>Loosing Guesses</p>
+                    <p id="losses">number of loosing guesses</p>
+                    <p id="congrats">congratulatory messages go here.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+        <h1 id="thanks">Thanks for playing!</h1>
+        </div>
+
+
+    </div>
+</div>    
+
+    <script src="assets/javascript/game.js"></script>
+
+</body>
+</html>
