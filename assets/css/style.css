@@ -8,3 +8,6 @@
     /* border: 5px green solid; */
     position: relative;
 }
+#gameStartDiv {
+    display: none;
+}
