@@ -26,6 +26,8 @@
 
         var magicNum = Math.floor(Math.random()*99);
 
+       
+
         //var pctpic = gameAnswers[0].pctpic;
 
         //initKeyPress = var randomGameAnswers = gameAnswers[compIndexItem].pctname;
@@ -84,439 +86,450 @@ I also had a mix of lower and upper case object properties from copying and past
         
         ];
 
-   // console.log(gameAnswers[compIdxItem].pctName);     
+    console.log("game cards are " + (gameCards.cardID));     
 
 
 //  make a function that randomly generate a number to pass into the gamdCards.cardNum  property  
 //          I think there should be an easy way to reference the number of items in an array
 
+// WORKING as is
+
         function getCardNums(){
 
               for(var i=0; i<6; i++){
-
-             
-
-    var compIdxItem = Math.floor((Math.random() * gameAnswers.length));
-
-    console.log("randomly generated index number is " + compIdxItem);
-
-    console.log(gameAnswers[compIdxItem].pctName.split([]));  
-    } 
-
-
-}
-
-
-
-//  WORKING: Randomly generated number successfully passes through to  randomGameAnsers var and returns a random item from the gameAnswers array of objects
-
-    // var randomGameAnswers = gameAnswers[compIdxItem].pctName;
-    //console.log(randomGameAnswers);
-
-        var randomGameAnswers = gameAnswers[compIdxItem];
-
-    console.log(randomGameAnswers);
-
-
-
-// WORKING: count the number of characters in a pctName
-
-        var pctNameChars = Math.floor(gameAnswers[compIdxItem].pctName.length);
-
-    console.log(pctNameChars);
-
-
-
-// WORKING: create a sting of underscores based on the number kept pctNameChars that represents the number of characters to be guessed
-
-
-        
-        var pctNameBlanks = [];
-
-            var i;
-
-                for (i = 0; i < gameAnswers[compIdxItem].pctName.length; i++) {
-
-                    pctNameBlanks[i] = "_";
-                }
-
-    console.log(pctNameBlanks)
-
-// WORKING: show the underscores in the html
-
-        var agpUpdate = document.getElementById("activeGamePlay");
-
-            agpUpdate.innerHTML = pctNameBlanks;
-
-    console.log(agpUpdate);
-
-
-// change the underscores to correctly guessed letters
-
-
-
-/*
-
-NONE of my attempts worked :-( so I got with Stephan which introduced the idea of doing it all in the loop that looks through the 'split' array
-
-function changeLetters(){
-
-    if ( pctNameChars = )
-
-     var agpLetters = document.getElementById("activeGamePlay");
-        agpLetters.innerHTML = 
-
-}
-*/
-       
-
-
-
-
-// sort of WORKING: show the gameplayers keystrokes (need to get them to appear in a row and not overwrite eachother)
-
-//WORKING: capturing the key press and showing them on screen albeit one at a time
-
-//var playerKeyPress;
-
-/* var allKeysPressed = [];
-
-        document.onkeypress = function (k){
-
-        var playerKeyPress = k;
-
-    console.log(playerKeyPress);
-
-        allKeysPressed.push(playerKeyPress);
-
-        //var allKeysPressed = [playerKeyPress];
-           // allKeysPressed.push(playerKeyPress);
-
-    console.log(allKeysPressed);
-
-        //document.getElementById("userGuessChar").innerHTML = allKeysPressed;
-
-        }
-
-//allKeysPressed.push(playerKeyPress);        
-document.getElementById("userGuessChar").innerHTML =allKeysPressed;
-*/
-
-//WORKING:  Turn the randomly selected game answer name into an indexed array
-    
-        var gameAnswerString = gameAnswers[compIdxItem].pctName.toLowerCase().split('');''
-        
-    console.log(gameAnswers[compIdxItem].pctName.toLowerCase())
-
-
-
-    console.log("these are all of the characters of the randomly generated answer " + gameAnswerString);
-
-
-//WORKING:  Create an input area that displays the gameplayers keypresses
-
-        const keyPress = document.querySelector("input");
-
-        const log = document.getElementById("show");
-
-            keyPress.onkeydown = logKey;
-
-
-
-// Stephan helped me to get this working! (previously not working):  having the guessed keystrokes decrement the total number of guesses available
-
-        function logKey(e) {
-
-            log.append(e.key);
-
-            pctGuesAvail --;
-            
-    console.log(pctGuesAvail);
-       
-            keyStrokeUpdate.innerHTML = pctGuesAvail;
-
-                for(var i = 0; i<gameAnswerString.length; i++){
-
-    console.log("this is the letter!");
-
-                    if (e.key == gameAnswerString[i])  {
-
-                        pctNameBlanks[i] = e.key;
-
-    console.log("this is the letter!", gameAnswerString[i]);
                 
-                    }
+         gameCards[i].cardNum =  Math.floor((Math.random() * 100));  
 
-                }
+    console.log("randomly generated card number for  " + gameCards[i].cardName + " is " + gameCards[i].cardNum);
 
-// Stephan helped me undersand 'join'.  Here we join the newly updated pctBlanks var into a string
-
-                pctNameBlanks.join("")
-
-    console.log(pctNameBlanks.join(""))
-
-                agpUpdate.innerHTML = pctNameBlanks.join("");
-
-                if ( pctNameBlanks.join("") === gameAnswers[compIdxItem].pctName.toLowerCase()) {
-
-    console.log("youWIN!");
-
-                }
+                } 
 
         }
 
-   
+        getCardNums();
 
-/*
+// display the value of the cardNum on click
 
-More code snippets and ideas
-********************************
+$("#c1").click(function(){
 
-*
-function myFunction() {
-    var str = "Visit W3Schools!"; 
-    var n = str.search("W3Schools");
-    document.getElementById("demo").innerHTML = n;
-  }
+        $("#thisCardNum1").html("gameCards[1].cardNum")
+});
 
-*/
+//  HTML id's used
 
-/*
+// id="cardPlayed" references the the next next to xxx has struck!
 
-split string values
 
-"Hello world!".split('')
-["H", "e", "l", "l", "o", " ", "w", "o", "r", "l", "d", "!"]
 
+                    // //  WORKING: Randomly generated number successfully passes through to  randomGameAnsers var and returns a random item from the gameAnswers array of objects
 
-Replace String Values
+                    //     // var randomGameAnswers = gameAnswers[compIdxItem].pctName;
+                    //     //console.log(randomGameAnswers);
 
-var str = "Visit Microsoft!";
-var res = str.replace("Microsoft", "W3Schools");
+                    //         var randomGameAnswers = gameAnswers[compIdxItem];
 
-********************************
+                    //     console.log(randomGameAnswers);
 
-            From JJ...
 
-            const input = document.querySelector('input');
-            const log = document.getElementById('show');
 
-            input.onkeydown = logKey;
+                    // // WORKING: count the number of characters in a pctName
 
-            function logKey(e) {
-            log.append(e.key);
+                    //         var pctNameChars = Math.floor(gameAnswers[compIdxItem].pctName.length);
 
+                    //     console.log(pctNameChars);
 
-********************************
 
-            From JJ...
 
-            arrayOfKeys = [];
+                    // // WORKING: create a sting of underscores based on the number kept pctNameChars that represents the number of characters to be guessed
 
-            document.onkeypress = function (k){
-            var playerKeyPress = k;
-            console.log(playerKeyPress);
 
-	        //add keypress to array
-	        arrayOfKeys.push(playerKeyPress);
-            }
-*********************************
+                            
+                    //         var pctNameBlanks = [];
 
-            From W3Schools
+                    //             var i;
 
-           var node = document.createElement("LI");                 // Create a <li> node
-           var textnode = document.createTextNode("Water");         // Create a text node
-           node.appendChild(textnode);                              // Append the text to <li>
-           document.getElementById("myList").appendChild(node);     // Append <li> to <ul> with id="myList" 
+                    //                 for (i = 0; i < gameAnswers[compIdxItem].pctName.length; i++) {
 
-************************************
-going to try putting all of this in a 'while' loop: didn't work
-************************************
+                    //                     pctNameBlanks[i] = "_";
+                    //                 }
 
+                    //     console.log(pctNameBlanks)
 
+                    // // WORKING: show the underscores in the html
 
-var pctGuesAvail = Math.floor(pctNameChars * 2.5);
+                    //         var agpUpdate = document.getElementById("activeGamePlay");
 
-console.log(pctGuesAvail);
+                    //             agpUpdate.innerHTML = pctNameBlanks;
 
-        var i = 1
+                    //     console.log(agpUpdate);
 
-        while (i < pctGuesAvail) {
 
-            document.onkeypress = function (k){
+                    // // change the underscores to correctly guessed letters
 
-                var playerKeyPress = k.key;
 
-//                var allKeysPressed;
 
-//                allKeysPressed.push(playerKeyPress);
+                    // /*
 
-                console.log(playerKeyPress);
+                    // NONE of my attempts worked :-( so I got with Stephan which introduced the idea of doing it all in the loop that looks through the 'split' array
 
-//                document.getElementById("userGuessChar").innerHTML = allKeysPressed;
-            }
+                    // function changeLetters(){
 
-            i++;
+                    //     if ( pctNameChars = )
 
-        }
+                    //     var agpLetters = document.getElementById("activeGamePlay");
+                    //         agpLetters.innerHTML = 
 
-**************************************
-going to try a for loop 
-**************************************
+                    // }
+                    // */
+                        
 
 
 
-        for (var i = 1; i < 5; i++) {
 
+                    // // sort of WORKING: show the gameplayers keystrokes (need to get them to appear in a row and not overwrite eachother)
 
-    console.log("this is my loop, ");
+                    // //WORKING: capturing the key press and showing them on screen albeit one at a time
 
-        }
+                    // //var playerKeyPress;
 
-*/
+                    // /* var allKeysPressed = [];
 
+                    //         document.onkeypress = function (k){
 
-// WORKING: calculate the number of guesses given per round.  It should be 2.5x the number of characters to be guessed 
+                    //         var playerKeyPress = k;
 
-        var pctGuesAvail = Math.floor(pctNameChars * 2.5);
+                    //     console.log(playerKeyPress);
 
-    console.log(pctGuesAvail);
+                    //         allKeysPressed.push(playerKeyPress);
 
-// WORKING: show pctGuessAvail in html
+                    //         //var allKeysPressed = [playerKeyPress];
+                    //         // allKeysPressed.push(playerKeyPress);
 
-        var keyStrokeUpdate = document.getElementById("remainingKeystrokes");
+                    //     console.log(allKeysPressed);
 
-            keyStrokeUpdate.innerHTML = pctGuesAvail;
+                    //         //document.getElementById("userGuessChar").innerHTML = allKeysPressed;
 
-    console.log(keyStrokeUpdate);
+                    //         }
 
+                    // //allKeysPressed.push(playerKeyPress);        
+                    // document.getElementById("userGuessChar").innerHTML =allKeysPressed;
+                    // */
 
+                    // //WORKING:  Turn the randomly selected game answer name into an indexed array
+                        
+                    //         var gameAnswerString = gameAnswers[compIdxItem].pctName.toLowerCase().split('');''
+                            
+                    //     console.log(gameAnswers[compIdxItem].pctName.toLowerCase())
 
-// has game player guessed it correctly within the given guess allotment? (this is just some copy pasted code for a while loop)
-/*
-        while (i < 10) {
-            text += "The number is " + i;
-            i++;
-        }
-*/
-// WORKING: display wins variable in the html page
 
-        var winsUpdate = document.getElementById("wins")
 
-            winsUpdate.innerHTML = wins;
+                    //     console.log("these are all of the characters of the randomly generated answer " + gameAnswerString);
 
-// WORKING: display losses variable in the html page
 
-        var lossesUpdate = document.getElementById("losses")
+                    // //WORKING:  Create an input area that displays the gameplayers keypresses
 
-            lossesUpdate.innerHTML = loses;
+                    //         const keyPress = document.querySelector("input");
 
+                    //         const log = document.getElementById("show");
 
-// WORKING: Display obj infor in the html page
+                    //             keyPress.onkeydown = logKey;
 
-        var pctTitleUpdate = document.getElementById("mstTitle");
 
-            pctTitleUpdate.innerHTML = gameAnswers[compIdxItem].pctName;
 
-    console.log(pctTitleUpdate);
+                    // // Stephan helped me to get this working! (previously not working):  having the guessed keystrokes decrement the total number of guesses available
 
-        var pctDescUpdate = document.getElementById("mstDesc");
+                    //         function logKey(e) {
 
-            pctDescUpdate.innerHTML = gameAnswers[compIdxItem].pctDesc;
+                    //             log.append(e.key);
 
-    console.log(pctDescUpdate);
+                    //             pctGuesAvail --;
+                                
+                    //     console.log(pctGuesAvail);
+                        
+                    //             keyStrokeUpdate.innerHTML = pctGuesAvail;
 
-        var pctPicUpdate = document.getElementById("mstPic");
+                    //                 for(var i = 0; i<gameAnswerString.length; i++){
 
-            pctPicUpdate.src = gameAnswers[compIdxItem].pctPic;
+                    //     console.log("this is the letter!");
 
-    console.log(pctPicUpdate);
+                    //                     if (e.key == gameAnswerString[i])  {
 
-        var pctTeaseUpdate = document.getElementById("questionTease");
+                    //                         pctNameBlanks[i] = e.key;
 
-            pctTeaseUpdate.innerHTML = gameAnswers[compIdxItem].pctTease;
-            
-    console.log(pctTeaseUpdate);
+                    //     console.log("this is the letter!", gameAnswerString[i]);
+                                    
+                    //                     }
 
-// WORKING: Hide 'Thanks for Playing' message till game is over    
+                    //                 }
 
-        var hideUpdate = document.getElementById("thanks");
+                    // // Stephan helped me undersand 'join'.  Here we join the newly updated pctBlanks var into a string
 
-            hideUpdate.innerHTML = "";    
+                    //                 pctNameBlanks.join("")
 
+                    //     console.log(pctNameBlanks.join(""))
 
-// Hide congrats message
+                    //                 agpUpdate.innerHTML = pctNameBlanks.join("");
 
+                    //                 if ( pctNameBlanks.join("") === gameAnswers[compIdxItem].pctName.toLowerCase()) {
 
+                    //     console.log("youWIN!");
 
+                    //                 }
 
+                    //         }
 
+                    
 
+                    // /*
 
-// Begin Psudo Code **********************************
-       
+                    // More code snippets and ideas
+                    // ********************************
 
-// on first key press generate a random index number and hold it in a variable to use as the first index item to guess
+                    // *
+                    // function myFunction() {
+                    //     var str = "Visit W3Schools!"; 
+                    //     var n = str.search("W3Schools");
+                    //     document.getElementById("demo").innerHTML = n;
+                    // }
 
-// present the related Object properties associated with the previously randomly generated index number
+                    // */
 
-// create a line of underscores that match the number of characters of the name randomly guessed technique value.
+                    // /*
 
-// on subsequent key presses log them in an array variable, 
+                    // split string values
 
-// present the array of charicters generated by the player's keypress on the screen to the player
+                    // "Hello world!".split('')
+                    // ["H", "e", "l", "l", "o", " ", "w", "o", "r", "l", "d", "!"]
 
-// also present, from the same array, values from the array that match the winning technique name as a replacement for the underscores.
 
-// create a variable to hold the winning guesses
+                    // Replace String Values
 
-// create a variable to hold the loosing guesses
+                    // var str = "Visit Microsoft!";
+                    // var res = str.replace("Microsoft", "W3Schools");
 
-// create a variable to hold the total number of guesses allowed per guess
+                    // ********************************
 
-// after the alotted number of allowed guesses has been reached AND there are still remaining un solved letters, add 1 point to the loosing variable
+                    //             From JJ...
 
-// if the technique had been successfully guessed before the alloted number of guseese have been used, add 1 point to the winning variable and present an alert or button moving on to the next technique,
+                    //             const input = document.querySelector('input');
+                    //             const log = document.getElementById('show');
 
-// once all the techniques have been guessed, Display the wins and losses and end the game. 
+                    //             input.onkeydown = logKey;
 
+                    //             function logKey(e) {
+                    //             log.append(e.key);
 
 
+                    // ********************************
 
-/* Code Notes and snippets
+                    //             From JJ...
 
-*************************
+                    //             arrayOfKeys = [];
 
+                    //             document.onkeypress = function (k){
+                    //             var playerKeyPress = k;
+                    //             console.log(playerKeyPress);
 
--------------------
+                    //             //add keypress to array
+                    //             arrayOfKeys.push(playerKeyPress);
+                    //             }
+                    // *********************************
 
-var name = 'JJ Harry';
+                    //             From W3Schools
 
-            // pre es6 concatenation
-            console.log('The best person ever is '+ name);
+                    //         var node = document.createElement("LI");                 // Create a <li> node
+                    //         var textnode = document.createTextNode("Water");         // Create a text node
+                    //         node.appendChild(textnode);                              // Append the text to <li>
+                    //         document.getElementById("myList").appendChild(node);     // Append <li> to <ul> with id="myList" 
 
-            // es6 template literals
-            console.log(`The best person ever is ${name}`);
+                    // ************************************
+                    // going to try putting all of this in a 'while' loop: didn't work
+                    // ************************************
 
 
 
--------------------
+                    // var pctGuesAvail = Math.floor(pctNameChars * 2.5);
 
-my pre-defined html id's
+                    // console.log(pctGuesAvail);
 
-<p id="userGuessChar">Letters that the game player has already used go here.</p>
-<p id="remainingKeystrokes">Number of keystrokes left before the game player looses the game</p>
-<p id="activeGamePlay">Underscores to be turned into correct letters as the game player presses down on keys</p>
-<p id="wins">number of winning guesses</p>
-<p id="losses">number of loosing guesses</p>
-<p id="congrats">congratulatory messages go here.</p>
+                    //         var i = 1
 
---------------------
+                    //         while (i < pctGuesAvail) {
 
+                    //             document.onkeypress = function (k){
 
+                    //                 var playerKeyPress = k.key;
 
+                    // //                var allKeysPressed;
 
-*************************
+                    // //                allKeysPressed.push(playerKeyPress);
 
-End Code Notes  */
+                    //                 console.log(playerKeyPress);
+
+                    // //                document.getElementById("userGuessChar").innerHTML = allKeysPressed;
+                    //             }
+
+                    //             i++;
+
+                    //         }
+
+                    // **************************************
+                    // going to try a for loop 
+                    // **************************************
+
+
+
+                    //         for (var i = 1; i < 5; i++) {
+
+
+                    //     console.log("this is my loop, ");
+
+                    //         }
+
+                    // */
+
+
+                    // // WORKING: calculate the number of guesses given per round.  It should be 2.5x the number of characters to be guessed 
+
+                    //         var pctGuesAvail = Math.floor(pctNameChars * 2.5);
+
+                    //     console.log(pctGuesAvail);
+
+                    // // WORKING: show pctGuessAvail in html
+
+                    //         var keyStrokeUpdate = document.getElementById("remainingKeystrokes");
+
+                    //             keyStrokeUpdate.innerHTML = pctGuesAvail;
+
+                    //     console.log(keyStrokeUpdate);
+
+
+
+                    // // has game player guessed it correctly within the given guess allotment? (this is just some copy pasted code for a while loop)
+                    // /*
+                    //         while (i < 10) {
+                    //             text += "The number is " + i;
+                    //             i++;
+                    //         }
+                    // */
+                    // // WORKING: display wins variable in the html page
+
+                    //         var winsUpdate = document.getElementById("wins")
+
+                    //             winsUpdate.innerHTML = wins;
+
+                    // // WORKING: display losses variable in the html page
+
+                    //         var lossesUpdate = document.getElementById("losses")
+
+                    //             lossesUpdate.innerHTML = loses;
+
+
+                    // // WORKING: Display obj infor in the html page
+
+                    //         var pctTitleUpdate = document.getElementById("mstTitle");
+
+                    //             pctTitleUpdate.innerHTML = gameAnswers[compIdxItem].pctName;
+
+                    //     console.log(pctTitleUpdate);
+
+                    //         var pctDescUpdate = document.getElementById("mstDesc");
+
+                    //             pctDescUpdate.innerHTML = gameAnswers[compIdxItem].pctDesc;
+
+                    //     console.log(pctDescUpdate);
+
+                    //         var pctPicUpdate = document.getElementById("mstPic");
+
+                    //             pctPicUpdate.src = gameAnswers[compIdxItem].pctPic;
+
+                    //     console.log(pctPicUpdate);
+
+                    //         var pctTeaseUpdate = document.getElementById("questionTease");
+
+                    //             pctTeaseUpdate.innerHTML = gameAnswers[compIdxItem].pctTease;
+                                
+                    //     console.log(pctTeaseUpdate);
+
+                    // // WORKING: Hide 'Thanks for Playing' message till game is over    
+
+                    //         var hideUpdate = document.getElementById("thanks");
+
+                    //             hideUpdate.innerHTML = "";    
+
+
+                    // // Hide congrats message
+
+
+
+
+
+
+
+                    // // Begin Psudo Code **********************************
+                        
+
+                    // // on first key press generate a random index number and hold it in a variable to use as the first index item to guess
+
+                    // // present the related Object properties associated with the previously randomly generated index number
+
+                    // // create a line of underscores that match the number of characters of the name randomly guessed technique value.
+
+                    // // on subsequent key presses log them in an array variable, 
+
+                    // // present the array of charicters generated by the player's keypress on the screen to the player
+
+                    // // also present, from the same array, values from the array that match the winning technique name as a replacement for the underscores.
+
+                    // // create a variable to hold the winning guesses
+
+                    // // create a variable to hold the loosing guesses
+
+                    // // create a variable to hold the total number of guesses allowed per guess
+
+                    // // after the alotted number of allowed guesses has been reached AND there are still remaining un solved letters, add 1 point to the loosing variable
+
+                    // // if the technique had been successfully guessed before the alloted number of guseese have been used, add 1 point to the winning variable and present an alert or button moving on to the next technique,
+
+                    // // once all the techniques have been guessed, Display the wins and losses and end the game. 
+
+
+
+
+                    // /* Code Notes and snippets
+
+                    // *************************
+
+
+                    // -------------------
+
+                    // var name = 'JJ Harry';
+
+                    //             // pre es6 concatenation
+                    //             console.log('The best person ever is '+ name);
+
+                    //             // es6 template literals
+                    //             console.log(`The best person ever is ${name}`);
+
+
+
+                    // -------------------
+
+                    // my pre-defined html id's
+
+                    // <p id="userGuessChar">Letters that the game player has already used go here.</p>
+                    // <p id="remainingKeystrokes">Number of keystrokes left before the game player looses the game</p>
+                    // <p id="activeGamePlay">Underscores to be turned into correct letters as the game player presses down on keys</p>
+                    // <p id="wins">number of winning guesses</p>
+                    // <p id="losses">number of loosing guesses</p>
+                    // <p id="congrats">congratulatory messages go here.</p>
+
+                    // --------------------
+
+
+
+
+                    // *************************
+
+                    // End Code Notes  */
 
