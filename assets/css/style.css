@@ -7,7 +7,13 @@
     padding: 5px;
     /* border: 5px green solid; */
     position: relative;
+    /* display: none; */
 }
 #gameStartDiv {
     display: none;
+}
+
+#playComm {
+    /* display: none; */
+    position: relative;
 }

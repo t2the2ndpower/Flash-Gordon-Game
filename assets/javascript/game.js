@@ -24,7 +24,7 @@
 
         var gameRound; // may not be needed, but, this variable will hold the current game round index (is this round 1, 2, 3 ,4 etc)
 
-        var magicNum = Math.floor(Math.random(1)*800);
+        var magicNum = Math.floor(Math.random(1)*800); //150
 
         var cardPtsPlayed = 0;
 
@@ -56,6 +56,8 @@ I also had a mix of lower and upper case object properties from copying and past
 $("#startBtn").click(function(){
     $("#gameStartDiv").show();
     $("#magicNum").html(magicNum);
+//    $("playComm").show();
+//    $("#image").show();
 // $("btn").replaceWith("btn-secondary"); wanted to change the button from the primary class to secondary class on mouseclick, oh well
     
 // Updated the total number of points played as each card is clicked
@@ -117,7 +119,7 @@ $("#startBtn").click(function(){
         
         ];
 
-    console.log("game cards are " + (gameCards.cardID));     
+    //console.log("game cards are " + (gameCards.cardID));     
 
 
 //  make a function that randomly generate a number to pass into the gamdCards.cardNum  property  
@@ -146,15 +148,16 @@ $("#startBtn").click(function(){
 
             $("#c1").click(function(){
 
-            //    $("#thisCardNum1").html(gameCards[0].cardNum);    
+            //    $("#thisCardNum1").html(gameCards[0].cardNum);
                 $("#cardPts").html(gameCards[0].cardNum);
-
+                                
                 cardPtsPlayed = cardPtsPlayed + gameCards[0].cardNum;
                 console.log(cardPtsPlayed + " pts total, after " + gameCards[0].cardName + " has been clicked");
 
                 $("#cardPts").html(cardPtsPlayed);
 
                 $("#cardPlayed").html(gameCards[0].cardName + " has struck a " + gameCards[0].cardSkill + " BLOW!!!");
+
 
             });
 
