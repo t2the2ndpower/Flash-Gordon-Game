@@ -42,12 +42,7 @@
 /*            
 **************************************
 
-the answers that should be randomly selected by index by the game, this version tries to create and array with objects in it, didn't seem to work so I created a series of individual objects that were named x1, x2, x3 etc.  It was painful. so glad I don't have to use that idea. 
 
-MY IDEA ABOUT OBJECTS IN AN ARRAY WAS ACTUALLY VALID!  WOOOOHOOO, WON'T HE DO IT! THANKS STERLING!  
-
-I was using a () instead of a [] when referencing each index item. smh. 
-I also had a mix of lower and upper case object properties from copying and pasting the wrong thing.
 
 */
 
@@ -64,9 +59,28 @@ $("#startBtn").click(function(){
 
 // $("#cardPts").html(cardPtsPlayed);
 
-
-
 });
+
+//  If statement that controls the loosing and winning P tags
+
+function winOrLoose(){
+
+    if(magicNum === cardPtsPlayed){
+
+        $("#playNews").html("<h2>The Good Guys Win!!!</h2>");
+
+    } else if (magicNum > cardPtsPlayed) {
+        $("#playNews").html("<h2>Ming has won!  Oh the HUMANITY!!!</h2>");
+
+    } else  {
+        $("#playNews").html("<h2>keep up the good work, you can do it!</h2>");
+
+    };
+
+
+
+
+
 
 
 
@@ -134,6 +148,7 @@ $("#startBtn").click(function(){
          gameCards[i].cardNum =  Math.floor((Math.random() * 100));  
 
     console.log("randomly generated card number for  " + gameCards[i].cardName + " is " + gameCards[i].cardNum);
+    
 
     //return gameCards[i];
     
@@ -152,12 +167,14 @@ $("#startBtn").click(function(){
                 $("#cardPts").html(gameCards[0].cardNum);
                                 
                 cardPtsPlayed = cardPtsPlayed + gameCards[0].cardNum;
-                console.log(cardPtsPlayed + " pts total, after " + gameCards[0].cardName + " has been clicked");
+
+            console.log(cardPtsPlayed + " pts total, after " + gameCards[0].cardName + " has been clicked");
 
                 $("#cardPts").html(cardPtsPlayed);
 
                 $("#cardPlayed").html(gameCards[0].cardName + " has struck a " + gameCards[0].cardSkill + " BLOW!!!");
 
+                winOrLoose;
 
             });
 
@@ -173,6 +190,8 @@ $("#startBtn").click(function(){
             
                 $("#cardPlayed").html(gameCards[1].cardName + " has struck a " + gameCards[1].cardSkill + " BLOW!!!");
 
+                winOrLoose;
+
             });
 
             $("#c3").click(function(){
@@ -186,6 +205,8 @@ $("#startBtn").click(function(){
                 $("#cardPts").html(cardPtsPlayed);
 
                 $("#cardPlayed").html(gameCards[2].cardName + " has struck a " + gameCards[2].cardSkill + " BLOW!!!");
+
+                winOrLoose;
 
             });
 
@@ -201,6 +222,8 @@ $("#startBtn").click(function(){
 
                 $("#cardPlayed").html(gameCards[3].cardName + " has struck a " + gameCards[3].cardSkill + " BLOW!!!");
 
+                winOrLoose;
+
             });
 
             $("#c5").click(function(){
@@ -214,6 +237,8 @@ $("#startBtn").click(function(){
                 $("#cardPts").html(cardPtsPlayed);
 
                 $("#cardPlayed").html(gameCards[4].cardName + " has struck a " + gameCards[4].cardSkill + " BLOW!!!");
+
+                winOrLoose;
 
             });
 
