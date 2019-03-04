@@ -50,7 +50,7 @@
 
 $("#startBtn").click(function(){
     $("#gameStartDiv").show();
-    $("#magicNum").html(magicNum);
+    $("#magicNum").html("<h2>Can you make it to " +  magicNum + " with out going over?!?!?</h2>");
 //    $("playComm").show();
 //    $("#image").show();
 // $("btn").replaceWith("btn-secondary"); wanted to change the button from the primary class to secondary class on mouseclick, oh well
@@ -71,14 +71,23 @@ function winOrLoose(){
         
         wins ++;
 
+        $("#gameStats").html(wins + " Wins vs " + losses + " Losses");
+
     } else if (magicNum < cardPtsPlayed) {
         $("#playNews").html("<h2>Ming has won the battle!  Oh the HUMANITY!!!</h2> Play another round to see if you can win the WAR!");
 
         losses ++;
+
+        $("#gameStats").html(wins + " Wins vs " + losses + " Losses");
+
 console.log("FAIL");
+
     } else  {
+
         $("#playNews").html("<h2>keep up the good work, you can do it!</h2>");
+
 console.log("win!");
+
     }};
 
 
@@ -86,14 +95,18 @@ console.log("win!");
 
 function winOrLooseGame(){
 
-    if(wins == 5){
+    if(wins >= 5){
 
         $("#playNews").html("<h1> YOU'VE WON THE WAR!!! THE UNIVERS IS SAFE</h1> We reward you for being the hero you are! Have some cocoa and a nap on us, you deserve it!")
    
-    } else if(losses == 5){
+        $("#cardPlayed").html("");
+   
+    } else if(losses >= 5){
 
         $("#playNews").html("<h1> THE UNIVERS HAS JUST BEEN HANDEDED OVER TO THE RED CAPED SCURGE CALLD MING</h1> How can you live with yourself! Your sister will now be forced into hard labor in the swamp fields of the prison planet. YOU SUCK!!!")
     
+        $("#cardPlayed").html("");
+
     } else{}
 
 };
@@ -189,7 +202,7 @@ function winOrLooseGame(){
 
             console.log(cardPtsPlayed + " pts total, after " + gameCards[0].cardName + " has been clicked");
 
-                $("#cardPts").html(cardPtsPlayed);
+                $("#cardPts").html("<h2>" + cardPtsPlayed + " points played so far...</h2>");
 
                 $("#cardPlayed").html(gameCards[0].cardName + " has struck a " + gameCards[0].cardSkill + " BLOW!!!");
 
@@ -205,7 +218,7 @@ function winOrLooseGame(){
                 cardPtsPlayed = cardPtsPlayed + gameCards[1].cardNum;
                 console.log(cardPtsPlayed + " pts total, after " + gameCards[1].cardName + " has been clicked");
 
-                $("#cardPts").html(cardPtsPlayed);
+                $("#cardPts").html("<h2>" + cardPtsPlayed + " points played so far...</h2>");
             
                 $("#cardPlayed").html(gameCards[1].cardName + " has struck a " + gameCards[1].cardSkill + " BLOW!!!");
 
@@ -221,7 +234,7 @@ function winOrLooseGame(){
                 cardPtsPlayed = cardPtsPlayed + gameCards[2].cardNum;
                 console.log(cardPtsPlayed + " pts total, after " + gameCards[2].cardName + " has been clicked");
 
-                $("#cardPts").html(cardPtsPlayed);
+                $("#cardPts").html("<h2>" + cardPtsPlayed + " points played so far...</h2>");
 
                 $("#cardPlayed").html(gameCards[2].cardName + " has struck a " + gameCards[2].cardSkill + " BLOW!!!");
 
@@ -237,7 +250,7 @@ function winOrLooseGame(){
                 cardPtsPlayed = cardPtsPlayed + gameCards[3].cardNum;
                 console.log(cardPtsPlayed + " pts total, after " + gameCards[3].cardName + " has been clicked");
 
-                $("#cardPts").html(cardPtsPlayed);
+                $("#cardPts").html("<h2>" + cardPtsPlayed + " points played so far...</h2>");
 
                 $("#cardPlayed").html(gameCards[3].cardName + " has struck a " + gameCards[3].cardSkill + " BLOW!!!");
 
@@ -253,7 +266,7 @@ function winOrLooseGame(){
                 cardPtsPlayed = cardPtsPlayed + gameCards[4].cardNum;
                 console.log(cardPtsPlayed + " pts total, after " + gameCards[4].cardName + " has been clicked");
 
-                $("#cardPts").html(cardPtsPlayed);
+                $("#cardPts").html("<h2>" + cardPtsPlayed + " points played so far...</h2>");
 
                 $("#cardPlayed").html(gameCards[4].cardName + " has struck a " + gameCards[4].cardSkill + " BLOW!!!");
 
