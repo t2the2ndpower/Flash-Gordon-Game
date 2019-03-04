@@ -16,7 +16,7 @@
 
         var wins = 0;  // the number of times the user guesses correctly
 
-        var loses = 0;  // the number of times the user guesses incorrectly
+        var losses = 0;  // the number of times the user guesses incorrectly
 
         var initKeyPress = Math.floor(Math.random()*4); // the inital key press to get the game started
 
@@ -61,16 +61,20 @@ $("#startBtn").click(function(){
 
 });
 
-//  If statement that controls the loosing and winning P tags
+// WORKING:  If statement that controls the loosing and winning P tags and adds a point for each round won or loss
 
 function winOrLoose(){
 
     if(magicNum == cardPtsPlayed){
 
         $("#playNews").html("<h2>The Good Guys Win!!!</h2> this battle, but will they win the war?  Play again to find out.");
+        
+        wins ++;
 
     } else if (magicNum < cardPtsPlayed) {
         $("#playNews").html("<h2>Ming has won the battle!  Oh the HUMANITY!!!</h2> Play another round to see if you can win the WAR!");
+
+        losses ++;
 console.log("FAIL");
     } else  {
         $("#playNews").html("<h2>keep up the good work, you can do it!</h2>");
@@ -78,10 +82,25 @@ console.log("win!");
     }};
 
 
+//  if statement that controls if the game has been one or not
+
+function winOrLooseGame(){
+
+    if(wins == 5){
+
+        $("#playNews").html("<h1> YOU'VE WON THE WAR!!! THE UNIVERS IS SAFE</h1> We reward you for being the hero you are! Have some cocoa and a nap on us, you deserve it!")
+   
+    } else if(losses == 5){
+
+        $("#playNews").html("<h1> THE UNIVERS HAS JUST BEEN HANDEDED OVER TO THE RED CAPED SCURGE CALLD MING</h1> How can you live with yourself! Your sister will now be forced into hard labor in the swamp fields of the prison planet. YOU SUCK!!!")
+    
+    } else{}
+
+};
 
 
 
-
+// WORKING: an array of game card objects to be played, along with their associated properties.
 
 
         var gameCards = [
