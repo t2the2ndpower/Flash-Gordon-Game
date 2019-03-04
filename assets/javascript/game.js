@@ -65,17 +65,17 @@ $("#startBtn").click(function(){
 
 function winOrLoose(){
 
-    if(magicNum === cardPtsPlayed){
+    if(magicNum == cardPtsPlayed){
 
-        $("#playNews").html("<h2>The Good Guys Win!!!</h2>");
+        $("#playNews").html("<h2>The Good Guys Win!!!</h2> this battle, but will they win the war?  Play again to find out.");
 
-    } else if (magicNum > cardPtsPlayed) {
-        $("#playNews").html("<h2>Ming has won!  Oh the HUMANITY!!!</h2>");
-
+    } else if (magicNum < cardPtsPlayed) {
+        $("#playNews").html("<h2>Ming has won the battle!  Oh the HUMANITY!!!</h2> Play another round to see if you can win the WAR!");
+console.log("FAIL");
     } else  {
         $("#playNews").html("<h2>keep up the good work, you can do it!</h2>");
-
-    };
+console.log("win!");
+    }};
 
 
 
@@ -174,7 +174,7 @@ function winOrLoose(){
 
                 $("#cardPlayed").html(gameCards[0].cardName + " has struck a " + gameCards[0].cardSkill + " BLOW!!!");
 
-                winOrLoose;
+                winOrLoose();
 
             });
 
@@ -190,7 +190,7 @@ function winOrLoose(){
             
                 $("#cardPlayed").html(gameCards[1].cardName + " has struck a " + gameCards[1].cardSkill + " BLOW!!!");
 
-                winOrLoose;
+                winOrLoose();
 
             });
 
@@ -206,7 +206,7 @@ function winOrLoose(){
 
                 $("#cardPlayed").html(gameCards[2].cardName + " has struck a " + gameCards[2].cardSkill + " BLOW!!!");
 
-                winOrLoose;
+                winOrLoose();
 
             });
 
@@ -222,7 +222,7 @@ function winOrLoose(){
 
                 $("#cardPlayed").html(gameCards[3].cardName + " has struck a " + gameCards[3].cardSkill + " BLOW!!!");
 
-                winOrLoose;
+                winOrLoose();
 
             });
 
@@ -238,7 +238,7 @@ function winOrLoose(){
 
                 $("#cardPlayed").html(gameCards[4].cardName + " has struck a " + gameCards[4].cardSkill + " BLOW!!!");
 
-                winOrLoose;
+                winOrLoose();
 
             });
 
@@ -663,5 +663,4 @@ function winOrLoose(){
 
                     // *************************
 
-                    // End Code Notes  */
-
+                    // End Code Notes
