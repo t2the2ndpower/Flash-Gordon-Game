@@ -1,7 +1,7 @@
 // My Fabulous Flash Gordon Game aka an outstanding assortment of id references!
 
 
-//thinks yet to be fixed
+//things yet to be fixed
 
 // my awesome background image
 
@@ -11,6 +11,7 @@
 
 // zero out the total score for each round. THIS WAS THE LAST THING I NEEDED TO DO, UGH!!! (currently it just starts the next with out the visual indicator of the counter going to zero)
 
+// 
 
 
 // Game Variables (wip)
@@ -25,7 +26,7 @@ var playerKeyPress; // all of the keypresses the player presses during a single 
 
 var gameRound; // may not be needed, but, this variable will hold the current game round index (is this round 1, 2, 3 ,4 etc)
 
-var magicNum = Math.floor(Math.random(1) * 800); //150
+var magicNum = Math.floor(Math.random(1) * 120); // I prefer 800
 
 var cardPtsPlayed = 0;
 
@@ -49,7 +50,7 @@ $("#startBtn").click(function () {
     //    $("playComm").show();
     //    $("#image").show();
     // $("btn").replaceWith("btn-secondary"); wanted to change the button from the primary class to secondary class on mouseclick, oh well
-    $("#startBtn").toggleClass("btn-secondary btn-lg");
+    $("#startBtn").toggleClass("btn-secondary btn-lg"); // reset function not completely finished
     $("#startBtn").html("reset game");
 
     // Updated the total number of points played as each card is clicked
@@ -68,7 +69,7 @@ function winOrLose() {
 
         wins++;
 
-        magicNum = Math.floor(Math.random(1) * 800);
+        magicNum = Math.floor(Math.random(1) * 120);
 
         cardPtsPlayed = 0; // this is the line that is supposed to be zeroing out the accumulated points for each round,  BAAAAAAHHHHHH
 
@@ -83,7 +84,7 @@ function winOrLose() {
 
         losses++;
 
-        magicNum = Math.floor(Math.random(1) * 800);
+        magicNum = Math.floor(Math.random(1) * 120); 
 
         cardPtsPlayed = 0; // this is the line that is supposed to be zeroing out the accumulated points for each round,  BAAAAAAHHHHHH
 
@@ -203,7 +204,7 @@ function getCardNums() {
 
     for (var i = 0; i < gameCards.length; i++) {
 
-        gameCards[i].cardNum = Math.floor((Math.random() * 100));
+        gameCards[i].cardNum = Math.floor((Math.random() * 12));
 
         console.log("randomly generated card number for  " + gameCards[i].cardName + " is " + gameCards[i].cardNum);
 
