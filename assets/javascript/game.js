@@ -9,6 +9,8 @@
 
 // my awesome critical hit card play sound effects
 
+// zero out the total score for each round. THIS WAS THE LAST THING I NEEDED TO DO, UGH!!! (currently it just starts the next with out the visual indicator of the counter going to zero)
+
 
 
 // Game Variables (wip)
@@ -68,7 +70,7 @@ function winOrLose() {
 
         magicNum = Math.floor(Math.random(1) * 800);
 
-        cardPtsPlayed = 0;
+        cardPtsPlayed = 0; // this is the line that is supposed to be zeroing out the accumulated points for each round,  BAAAAAAHHHHHH
 
         $("#magicNum").html("<h2>Can you NOW make it to " + magicNum + " with out going over?!?!?</h2>");
 
@@ -83,7 +85,7 @@ function winOrLose() {
 
         magicNum = Math.floor(Math.random(1) * 800);
 
-        cardPtsPlayed = 0; // this doesn't actually show the 0 but on the next click shows the amount of the first click
+        cardPtsPlayed = 0; // this is the line that is supposed to be zeroing out the accumulated points for each round,  BAAAAAAHHHHHH
 
         $("#magicNum").html("<h2>Can you NOW make it to " + magicNum + " with out going over?!?!?</h2>");
 
