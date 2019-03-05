@@ -14,29 +14,29 @@
 
 // Game Variables (wip)
 
-        var wins = 0;  // the number of times the user guesses correctly
+var wins = 0;  // the number of times the user guesses correctly
 
-        var losses = 0;  // the number of times the user guesses incorrectly
+var losses = 0;  // the number of times the user guesses incorrectly
 
-        var initKeyPress = Math.floor(Math.random()*4); // the inital key press to get the game started
+var initKeyPress = Math.floor(Math.random() * 4); // the inital key press to get the game started
 
-        var playerKeyPress; // all of the keypresses the player presses during a single guess. This needs to be cleared out after a successfull guess or player has run out of attempts.
+var playerKeyPress; // all of the keypresses the player presses during a single guess. This needs to be cleared out after a successfull guess or player has run out of attempts.
 
-        var gameRound; // may not be needed, but, this variable will hold the current game round index (is this round 1, 2, 3 ,4 etc)
+var gameRound; // may not be needed, but, this variable will hold the current game round index (is this round 1, 2, 3 ,4 etc)
 
-        var magicNum = Math.floor(Math.random(1)*800); //150
+var magicNum = Math.floor(Math.random(1) * 800); //150
 
-        var cardPtsPlayed = 0;
+var cardPtsPlayed = 0;
 
-        var cardTotalPts = 0;
+var cardTotalPts = 0;
 
-       
 
-        //var pctpic = gameAnswers[0].pctpic;
 
-        //initKeyPress = var randomGameAnswers = gameAnswers[compIndexItem].pctname;
+//var pctpic = gameAnswers[0].pctpic;
 
-        //var randomGameAnswers = gameAnswers[compIndexItem].pctname;
+//initKeyPress = var randomGameAnswers = gameAnswers[compIndexItem].pctname;
+
+//var randomGameAnswers = gameAnswers[compIndexItem].pctname;
 
 
 /*            
@@ -48,78 +48,79 @@
 
 // WORKING as is: Click to start the game and generate the random number to add up to
 
-$("#startBtn").click(function(){
+$("#startBtn").click(function () {
     $("#gameStartDiv").show();
-    $("#magicNum").html("<h2>Can you make it to " +  magicNum + " with out going over?!?!?</h2>");
-//    $("playComm").show();
-//    $("#image").show();
-// $("btn").replaceWith("btn-secondary"); wanted to change the button from the primary class to secondary class on mouseclick, oh well
-    
-// Updated the total number of points played as each card is clicked
+    $("#magicNum").html("<h2>Can you make it to " + magicNum + " with out going over?!?!?</h2>");
+    //    $("playComm").show();
+    //    $("#image").show();
+    // $("btn").replaceWith("btn-secondary"); wanted to change the button from the primary class to secondary class on mouseclick, oh well
 
-// $("#cardPts").html(cardPtsPlayed);
+    // Updated the total number of points played as each card is clicked
+
+    // $("#cardPts").html(cardPtsPlayed);
 
 });
 
 // WORKING:  If statement that controls the loosing and winning P tags and adds a point for each round won or loss
 
-function winOrLose(){
+function winOrLose() {
 
-    if(magicNum == cardPtsPlayed){
+    if (magicNum == cardPtsPlayed) {
 
         $("#playNews").html("<h2>The Good Guys Win!!!</h2> this battle, but will they win the war?  Play again to find out.");
-        
-        wins ++;
 
-        magicNum = Math.floor(Math.random(1)*800);
+        wins++;
+
+        magicNum = Math.floor(Math.random(1) * 800);
 
         cardPtsPlayed = 0;
 
-        $("#magicNum").html("<h2>Can you NOW make it to " +  magicNum + " with out going over?!?!?</h2>");
+        $("#magicNum").html("<h2>Can you NOW make it to " + magicNum + " with out going over?!?!?</h2>");
 
         $("#gameStats").html(wins + " Wins vs " + losses + " Losses");
 
     } else if (magicNum < cardPtsPlayed) {
         $("#playNews").html("<h2>Ming has won the battle!  Oh the HUMANITY!!!</h2> Play another round to see if you can win the WAR!");
 
-        losses ++;
+        losses++;
 
-        magicNum = Math.floor(Math.random(1)*800);
+        magicNum = Math.floor(Math.random(1) * 800);
 
         cardPtsPlayed = 0; // this doesn't actually show the 0 but on the next click shows the amount of the first click
 
-        $("#magicNum").html("<h2>Can you NOW make it to " +  magicNum + " with out going over?!?!?</h2>");
+        $("#magicNum").html("<h2>Can you NOW make it to " + magicNum + " with out going over?!?!?</h2>");
 
         $("#gameStats").html(wins + " Wins vs " + losses + " Losses");
 
-console.log("FAIL");
+        console.log("FAIL");
 
-    } else  {
+    } else {
 
         $("#playNews").html("<h2>keep up the good work, you can do it!</h2>");
 
-console.log("win!");
+        console.log("win!");
 
-    }};
+    }
+};
 
 
 //  if statement that controls if the game has been one or not
 
-function winOrLoseGame(){
+function winOrLoseGame() {
 
-    if(wins >= 5){
+    if (wins >= 5) {
 
         $("#playNews").html("<h1> YOU'VE WON THE WAR!!! THE UNIVERS IS SAFE</h1> We reward you for being the hero you are! Have some cocoa and a nap on us, you deserve it!")
-   
+
         $("#cardPlayed").html("");
-   
-    } else if(losses >= 5){
+
+    } else if (losses >= 5) {
 
         $("#playNews").html("<h1> THE UNIVERS HAS JUST BEEN HANDEDED OVER TO THE RED CAPED SCURGE CALLD MING</h1> How can you live with yourself! Your sister will now be forced into hard labor in the swamp fields of the prison planet. YOU SUCK!!!")
-    
+
         $("#cardPlayed").html("");
 
-    } else{}
+    } else { }
 
 };
 
@@ -128,56 +129,56 @@ function winOrLoseGame(){
 // WORKING: an array of game card objects to be played, along with their associated properties.
 
 
-        var gameCards = [
-        {
-            cardName: 'Flash',
-            cardTitle: "assets/images/flashgordon1.jpg",
-            cardEffect:"The mica shift is a very simple technique that yields incredible results. It works with polymer clay that has mica in it,  first you align the mica particles in the clay and later disturb them to produce very interesting effects. My favorite effect is the 3D optical illusion that you get when you use a stamp; the clay appears to have depth, while being completely flat. It's a very interesting optical illusion that is fun both make and watch.",
-            cardID: "c1",
-            cardSkill: "Mighty",
-            cardNum: 0,
-            cardTotalPts: 0
-        },
-        {
-            cardName: 'Dale',
-            cardTitle: "assets/images/flashgordon2.jpg",
-            cardEffect:"The mica shift is a very simple technique that yields incredible results. It works with polymer clay that has mica in it,  first you align the mica particles in the clay and later disturb them to produce very interesting effects. My favorite effect is the 3D optical illusion that you get when you use a stamp; the clay appears to have depth, while being completely flat. It's a very interesting optical illusion that is fun both make and watch.",
-            cardID: "c2",
-            cardSkill: "Fierce",
-            cardNum: 0,
-            cardTotalPts: 0
-        },
-        {
-            cardName: 'Baron',
-            cardTitle: "assets/images/flashgordon3.jpg",
-            cardEffect:"The mica shift is a very simple technique that yields incredible results. It works with polymer clay that has mica in it,  first you align the mica particles in the clay and later disturb them to produce very interesting effects. My favorite effect is the 3D optical illusion that you get when you use a stamp; the clay appears to have depth, while being completely flat. It's a very interesting optical illusion that is fun both make and watch.",
-            cardID: "c3",
-            cardSkill: "Bombastic",
-            cardNum: 0,
-            cardTotalPts: 0
-        },
-        {
-            cardName: 'Hawk',
-            cardTitle: "assets/images/flashgordon5.jpg",
-            cardEffect:"The mica shift is a very simple technique that yields incredible results. It works with polymer clay that has mica in it,  first you align the mica particles in the clay and later disturb them to produce very interesting effects. My favorite effect is the 3D optical illusion that you get when you use a stamp; the clay appears to have depth, while being completely flat. It's a very interesting optical illusion that is fun both make and watch.",
-            cardID: "c4",
-            cardSkill: "Hurtful",
-            cardNum: 0,
-            cardTotalPts: 0
-        },
-        {
-            cardName: 'Ming',
-            cardTitle: "assets/images/flashgordon5.jpg",
-            cardEffect:"The mica shift is a very simple technique that yields incredible results. It works with polymer clay that has mica in it,  first you align the mica particles in the clay and later disturb them to produce very interesting effects. My favorite effect is the 3D optical illusion that you get when you use a stamp; the clay appears to have depth, while being completely flat. It's a very interesting optical illusion that is fun both make and watch.",
-            cardID: "c5",
-            cardSkill: "Mercilous",
-            cardNum: 0,
-            cardTotalPts: 0
-        }
-        
-        ];
+var gameCards = [
+    {
+        cardName: 'Flash',
+        cardTitle: "assets/images/flashgordon1.jpg",
+        cardEffect: "The mica shift is a very simple technique that yields incredible results. It works with polymer clay that has mica in it,  first you align the mica particles in the clay and later disturb them to produce very interesting effects. My favorite effect is the 3D optical illusion that you get when you use a stamp; the clay appears to have depth, while being completely flat. It's a very interesting optical illusion that is fun both make and watch.",
+        cardID: "c1",
+        cardSkill: "Mighty",
+        cardNum: 0,
+        cardTotalPts: 0
+    },
+    {
+        cardName: 'Dale',
+        cardTitle: "assets/images/flashgordon2.jpg",
+        cardEffect: "The mica shift is a very simple technique that yields incredible results. It works with polymer clay that has mica in it,  first you align the mica particles in the clay and later disturb them to produce very interesting effects. My favorite effect is the 3D optical illusion that you get when you use a stamp; the clay appears to have depth, while being completely flat. It's a very interesting optical illusion that is fun both make and watch.",
+        cardID: "c2",
+        cardSkill: "Fierce",
+        cardNum: 0,
+        cardTotalPts: 0
+    },
+    {
+        cardName: 'Baron',
+        cardTitle: "assets/images/flashgordon3.jpg",
+        cardEffect: "The mica shift is a very simple technique that yields incredible results. It works with polymer clay that has mica in it,  first you align the mica particles in the clay and later disturb them to produce very interesting effects. My favorite effect is the 3D optical illusion that you get when you use a stamp; the clay appears to have depth, while being completely flat. It's a very interesting optical illusion that is fun both make and watch.",
+        cardID: "c3",
+        cardSkill: "Bombastic",
+        cardNum: 0,
+        cardTotalPts: 0
+    },
+    {
+        cardName: 'Hawk',
+        cardTitle: "assets/images/flashgordon5.jpg",
+        cardEffect: "The mica shift is a very simple technique that yields incredible results. It works with polymer clay that has mica in it,  first you align the mica particles in the clay and later disturb them to produce very interesting effects. My favorite effect is the 3D optical illusion that you get when you use a stamp; the clay appears to have depth, while being completely flat. It's a very interesting optical illusion that is fun both make and watch.",
+        cardID: "c4",
+        cardSkill: "Hurtful",
+        cardNum: 0,
+        cardTotalPts: 0
+    },
+    {
+        cardName: 'Ming',
+        cardTitle: "assets/images/flashgordon5.jpg",
+        cardEffect: "The mica shift is a very simple technique that yields incredible results. It works with polymer clay that has mica in it,  first you align the mica particles in the clay and later disturb them to produce very interesting effects. My favorite effect is the 3D optical illusion that you get when you use a stamp; the clay appears to have depth, while being completely flat. It's a very interesting optical illusion that is fun both make and watch.",
+        cardID: "c5",
+        cardSkill: "Mercilous",
+        cardNum: 0,
+        cardTotalPts: 0
+    }
 
-    //console.log("game cards are " + (gameCards.cardID));     
+];
+
+//console.log("game cards are " + (gameCards.cardID));     
 
 
 //  make a function that randomly generate a number to pass into the gamdCards.cardNum  property  
@@ -185,106 +186,106 @@ function winOrLoseGame(){
 
 // WORKING as is
 
-        function getCardNums(){
+function getCardNums() {
 
-              for(var i=0; i<gameCards.length; i++){
-                
-         gameCards[i].cardNum =  Math.floor((Math.random() * 100));  
+    for (var i = 0; i < gameCards.length; i++) {
 
-    console.log("randomly generated card number for  " + gameCards[i].cardName + " is " + gameCards[i].cardNum);
-    
+        gameCards[i].cardNum = Math.floor((Math.random() * 100));
 
-    //return gameCards[i];
-    
+        console.log("randomly generated card number for  " + gameCards[i].cardName + " is " + gameCards[i].cardNum);
 
-                } 
 
-        }
+        //return gameCards[i];
 
-        getCardNums();
+
+    }
+
+}
+
+getCardNums();
 
 // WORKING as is:   display the value of the cardNum on click - a bit klugie.  I know there is a way to do this with variables but I couldn't figure it out so I just had to use ID's for everything.  My goal was to complete a working homework assignment. 
 
-            $("#c1").click(function(){
+$("#c1").click(function () {
 
-            //    $("#thisCardNum1").html(gameCards[0].cardNum);
-                $("#cardPts").html(gameCards[0].cardNum);
-                                
-                cardPtsPlayed = cardPtsPlayed + gameCards[0].cardNum;
+    //    $("#thisCardNum1").html(gameCards[0].cardNum);
+    $("#cardPts").html(gameCards[0].cardNum);
 
-            console.log(cardPtsPlayed + " pts total, after " + gameCards[0].cardName + " has been clicked");
+    cardPtsPlayed = cardPtsPlayed + gameCards[0].cardNum;
 
-                $("#cardPts").html("<h2>" + cardPtsPlayed + " points played so far...</h2>");
+    console.log(cardPtsPlayed + " pts total, after " + gameCards[0].cardName + " has been clicked");
 
-                $("#cardPlayed").html(gameCards[0].cardName + " has struck a " + gameCards[0].cardSkill + " BLOW!!!");
+    $("#cardPts").html("<h2>" + cardPtsPlayed + " points played so far...</h2>");
 
-                winOrLose();
+    $("#cardPlayed").html(gameCards[0].cardName + " has struck a " + gameCards[0].cardSkill + " BLOW!!!");
 
-            });
+    winOrLose();
 
-            $("#c2").click(function(){
+});
 
-            //    $("#thisCardNum2").html(gameCards[1].cardNum);
-                $("#cardPts").html(gameCards[1].cardNum);
-                
-                cardPtsPlayed = cardPtsPlayed + gameCards[1].cardNum;
-                console.log(cardPtsPlayed + " pts total, after " + gameCards[1].cardName + " has been clicked");
+$("#c2").click(function () {
 
-                $("#cardPts").html("<h2>" + cardPtsPlayed + " points played so far...</h2>");
-            
-                $("#cardPlayed").html(gameCards[1].cardName + " has struck a " + gameCards[1].cardSkill + " BLOW!!!");
+    //    $("#thisCardNum2").html(gameCards[1].cardNum);
+    $("#cardPts").html(gameCards[1].cardNum);
 
-                winOrLose();
+    cardPtsPlayed = cardPtsPlayed + gameCards[1].cardNum;
+    console.log(cardPtsPlayed + " pts total, after " + gameCards[1].cardName + " has been clicked");
 
-            });
+    $("#cardPts").html("<h2>" + cardPtsPlayed + " points played so far...</h2>");
 
-            $("#c3").click(function(){
+    $("#cardPlayed").html(gameCards[1].cardName + " has struck a " + gameCards[1].cardSkill + " BLOW!!!");
 
-            //    $("#thisCardNum3").html(gameCards[2].cardNum);
-                $("#cardPts").html(gameCards[2].cardNum);
+    winOrLose();
 
-                cardPtsPlayed = cardPtsPlayed + gameCards[2].cardNum;
-                console.log(cardPtsPlayed + " pts total, after " + gameCards[2].cardName + " has been clicked");
+});
 
-                $("#cardPts").html("<h2>" + cardPtsPlayed + " points played so far...</h2>");
+$("#c3").click(function () {
 
-                $("#cardPlayed").html(gameCards[2].cardName + " has struck a " + gameCards[2].cardSkill + " BLOW!!!");
+    //    $("#thisCardNum3").html(gameCards[2].cardNum);
+    $("#cardPts").html(gameCards[2].cardNum);
 
-                winOrLose();
+    cardPtsPlayed = cardPtsPlayed + gameCards[2].cardNum;
+    console.log(cardPtsPlayed + " pts total, after " + gameCards[2].cardName + " has been clicked");
 
-            });
+    $("#cardPts").html("<h2>" + cardPtsPlayed + " points played so far...</h2>");
 
-            $("#c4").click(function(){
+    $("#cardPlayed").html(gameCards[2].cardName + " has struck a " + gameCards[2].cardSkill + " BLOW!!!");
 
-            //    $("#thisCardNum4").html(gameCards[3].cardNum);
-                $("#cardPts").html(gameCards[3].cardNum);
+    winOrLose();
 
-                cardPtsPlayed = cardPtsPlayed + gameCards[3].cardNum;
-                console.log(cardPtsPlayed + " pts total, after " + gameCards[3].cardName + " has been clicked");
+});
 
-                $("#cardPts").html("<h2>" + cardPtsPlayed + " points played so far...</h2>");
+$("#c4").click(function () {
 
-                $("#cardPlayed").html(gameCards[3].cardName + " has struck a " + gameCards[3].cardSkill + " BLOW!!!");
+    //    $("#thisCardNum4").html(gameCards[3].cardNum);
+    $("#cardPts").html(gameCards[3].cardNum);
 
-                winOrLose();
+    cardPtsPlayed = cardPtsPlayed + gameCards[3].cardNum;
+    console.log(cardPtsPlayed + " pts total, after " + gameCards[3].cardName + " has been clicked");
 
-            });
+    $("#cardPts").html("<h2>" + cardPtsPlayed + " points played so far...</h2>");
 
-            $("#c5").click(function(){
+    $("#cardPlayed").html(gameCards[3].cardName + " has struck a " + gameCards[3].cardSkill + " BLOW!!!");
 
-            //    $("#thisCardNum5").html(gameCards[4].cardNum);
-                $("#cardPts").html(gameCards[4].cardNum);
+    winOrLose();
 
-                cardPtsPlayed = cardPtsPlayed + gameCards[4].cardNum;
-                console.log(cardPtsPlayed + " pts total, after " + gameCards[4].cardName + " has been clicked");
+});
 
-                $("#cardPts").html("<h2>" + cardPtsPlayed + " points played so far...</h2>");
+$("#c5").click(function () {
 
-                $("#cardPlayed").html(gameCards[4].cardName + " has struck a " + gameCards[4].cardSkill + " BLOW!!!");
+    //    $("#thisCardNum5").html(gameCards[4].cardNum);
+    $("#cardPts").html(gameCards[4].cardNum);
 
-                winOrLose();
+    cardPtsPlayed = cardPtsPlayed + gameCards[4].cardNum;
+    console.log(cardPtsPlayed + " pts total, after " + gameCards[4].cardName + " has been clicked");
 
-            });
+    $("#cardPts").html("<h2>" + cardPtsPlayed + " points played so far...</h2>");
+
+    $("#cardPlayed").html(gameCards[4].cardName + " has struck a " + gameCards[4].cardSkill + " BLOW!!!");
+
+    winOrLose();
+
+});
 
 
 
@@ -319,7 +320,7 @@ function winOrLoseGame(){
                     // // WORKING: create a sting of underscores based on the number kept pctNameChars that represents the number of characters to be guessed
 
 
-                            
+
                     //         var pctNameBlanks = [];
 
                     //             var i;
@@ -357,7 +358,7 @@ function winOrLoseGame(){
 
                     // }
                     // */
-                        
+
 
 
 
@@ -392,9 +393,9 @@ function winOrLoseGame(){
                     // */
 
                     // //WORKING:  Turn the randomly selected game answer name into an indexed array
-                        
+
                     //         var gameAnswerString = gameAnswers[compIdxItem].pctName.toLowerCase().split('');''
-                            
+
                     //     console.log(gameAnswers[compIdxItem].pctName.toLowerCase())
 
 
@@ -419,9 +420,9 @@ function winOrLoseGame(){
                     //             log.append(e.key);
 
                     //             pctGuesAvail --;
-                                
+
                     //     console.log(pctGuesAvail);
-                        
+
                     //             keyStrokeUpdate.innerHTML = pctGuesAvail;
 
                     //                 for(var i = 0; i<gameAnswerString.length; i++){
@@ -433,7 +434,7 @@ function winOrLoseGame(){
                     //                         pctNameBlanks[i] = e.key;
 
                     //     console.log("this is the letter!", gameAnswerString[i]);
-                                    
+
                     //                     }
 
                     //                 }
@@ -454,7 +455,7 @@ function winOrLoseGame(){
 
                     //         }
 
-                    
+
 
                     // /*
 
@@ -624,7 +625,7 @@ function winOrLoseGame(){
                     //         var pctTeaseUpdate = document.getElementById("questionTease");
 
                     //             pctTeaseUpdate.innerHTML = gameAnswers[compIdxItem].pctTease;
-                                
+
                     //     console.log(pctTeaseUpdate);
 
                     // // WORKING: Hide 'Thanks for Playing' message till game is over    
@@ -643,7 +644,7 @@ function winOrLoseGame(){
 
 
                     // // Begin Psudo Code **********************************
-                        
+
 
                     // // on first key press generate a random index number and hold it in a variable to use as the first index item to guess
 
