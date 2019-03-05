@@ -63,7 +63,7 @@ $("#startBtn").click(function(){
 
 // WORKING:  If statement that controls the loosing and winning P tags and adds a point for each round won or loss
 
-function winOrLoose(){
+function winOrLose(){
 
     if(magicNum == cardPtsPlayed){
 
@@ -71,12 +71,24 @@ function winOrLoose(){
         
         wins ++;
 
+        magicNum = Math.floor(Math.random(1)*800);
+
+        cardPtsPlayed = 0;
+
+        $("#magicNum").html("<h2>Can you NOW make it to " +  magicNum + " with out going over?!?!?</h2>");
+
         $("#gameStats").html(wins + " Wins vs " + losses + " Losses");
 
     } else if (magicNum < cardPtsPlayed) {
         $("#playNews").html("<h2>Ming has won the battle!  Oh the HUMANITY!!!</h2> Play another round to see if you can win the WAR!");
 
         losses ++;
+
+        magicNum = Math.floor(Math.random(1)*800);
+
+        cardPtsPlayed = 0; // this doesn't actually show the 0 but on the next click shows the amount of the first click
+
+        $("#magicNum").html("<h2>Can you NOW make it to " +  magicNum + " with out going over?!?!?</h2>");
 
         $("#gameStats").html(wins + " Wins vs " + losses + " Losses");
 
@@ -93,7 +105,7 @@ console.log("win!");
 
 //  if statement that controls if the game has been one or not
 
-function winOrLooseGame(){
+function winOrLoseGame(){
 
     if(wins >= 5){
 
@@ -206,7 +218,7 @@ function winOrLooseGame(){
 
                 $("#cardPlayed").html(gameCards[0].cardName + " has struck a " + gameCards[0].cardSkill + " BLOW!!!");
 
-                winOrLoose();
+                winOrLose();
 
             });
 
@@ -222,7 +234,7 @@ function winOrLooseGame(){
             
                 $("#cardPlayed").html(gameCards[1].cardName + " has struck a " + gameCards[1].cardSkill + " BLOW!!!");
 
-                winOrLoose();
+                winOrLose();
 
             });
 
@@ -238,7 +250,7 @@ function winOrLooseGame(){
 
                 $("#cardPlayed").html(gameCards[2].cardName + " has struck a " + gameCards[2].cardSkill + " BLOW!!!");
 
-                winOrLoose();
+                winOrLose();
 
             });
 
@@ -254,7 +266,7 @@ function winOrLooseGame(){
 
                 $("#cardPlayed").html(gameCards[3].cardName + " has struck a " + gameCards[3].cardSkill + " BLOW!!!");
 
-                winOrLoose();
+                winOrLose();
 
             });
 
@@ -270,7 +282,7 @@ function winOrLooseGame(){
 
                 $("#cardPlayed").html(gameCards[4].cardName + " has struck a " + gameCards[4].cardSkill + " BLOW!!!");
 
-                winOrLoose();
+                winOrLose();
 
             });
 
