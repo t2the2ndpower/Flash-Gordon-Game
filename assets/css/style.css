@@ -1,5 +1,10 @@
+body {
+    background-image: url("/assets/images/1920x1200_Flash.jpg");
+    background-color: orange;
+  }
+
 .gameStyle {
-    background-image: "assets/images/1920x1200_Flash.jpg";
+    background-image: "/assets/images/1920x1200_Flash.jpg";
     background-attachment: fixed;
 }
 
